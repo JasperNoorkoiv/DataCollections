@@ -10,7 +10,7 @@ namespace DataCollections
     {
         static void Main(string[] args)
         {
-
+            #region List
             //var cars = new List<string>();
 
             //var car1 = "BMW";
@@ -151,6 +151,7 @@ namespace DataCollections
             ////{
             ////    Console.WriteLine(item.Name + " " + item.Age);
             ////}
+            #endregion
             #region Queue
             ////Loome queue(järjekorras)
             //Queue<string> numbers = new Queue<string>();
@@ -205,19 +206,19 @@ namespace DataCollections
             #endregion
             #region Stack - Last in first out
 
-            Stack<string> numbers = new Stack<string>();
-            numbers.Push("one");
-            numbers.Push("two");
-            numbers.Push("three");
-            numbers.Push("four");
-            numbers.Push("five");
-            foreach  (string number in numbers)
-            {
-                Console.WriteLine(number);
-            }
-            Console.WriteLine("\nPopping '{0}'", numbers.Pop());
-            Console.WriteLine("Peek at next item to destack: {0}", numbers.Peek());
-            Console.WriteLine("Popping '{0}'", numbers.Pop());
+            //Stack<string> numbers = new Stack<string>();
+            //numbers.Push("one");
+            //numbers.Push("two");
+            //numbers.Push("three");
+            //numbers.Push("four");
+            //numbers.Push("five");
+            //foreach  (string number in numbers)
+            //{
+            //    Console.WriteLine(number);
+            //}
+            //Console.WriteLine("\nPopping '{0}'", numbers.Pop());
+            //Console.WriteLine("Peek at next item to destack: {0}", numbers.Peek());
+            //Console.WriteLine("Popping '{0}'", numbers.Pop());
 
 
 
@@ -228,6 +229,26 @@ namespace DataCollections
 
 
             #endregion
+
+            #region Linq
+            //andmekogum
+            int[] numbers = new int[7] {0, 1, 2, 3, 4, 5, 6 };
+
+            //loome päringu
+            var numQuery = from num in numbers
+                           where (num % 3) == 0
+                           select num;
+
+            foreach (int num in numQuery)
+            {
+                Console.WriteLine("{0,1} ", num);
+            }
+
+
+
+
+
+                           #endregion
             Console.ReadLine();
         }
     }
