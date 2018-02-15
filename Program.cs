@@ -67,62 +67,142 @@ namespace DataCollections
             //}
             //while(true)
             //{
-                //var human3 = new Human();
-                //Console.WriteLine("Sisestage nimi?");
-                //human3.Name = Console.ReadLine();
-                //Console.WriteLine("Sisestage vanus?");
-                //human3.Age = Int32.Parse(Console.ReadLine());
-                //humans1.Add(human3);
+            //var human3 = new Human();
+            //Console.WriteLine("Sisestage nimi?");
+            //human3.Name = Console.ReadLine();
+            //Console.WriteLine("Sisestage vanus?");
+            //human3.Age = Int32.Parse(Console.ReadLine());
+            //humans1.Add(human3);
 
-                //Dictionary
-                //            key      value
-                var openWith = new Dictionary<string, string>();
-                openWith.Add("txt", "notepad.exe");
-                openWith.Add("bmp", "paint.exe");
-                openWith.Add("jpg", "paint.exe");
-                openWith.Add("rtf", "workpad.exe");
+            //Dictionary
+            //            key      value
+            //    var openWith = new Dictionary<string, string>();
+            //    openWith.Add("txt", "notepad.exe");
+            //    openWith.Add("bmp", "paint.exe");
+            //    openWith.Add("jpg", "paint.exe");
+            //    openWith.Add("rtf", "workpad.exe");
 
-            openWith["rtf"] = "winword.exe";
-            openWith["doc"] = "winword.exe";
-
-
-            try
-            {
-                openWith.Add("txt", "workpad");
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("An element with key \"txt\" already exists");
-
-            }
-
-            Console.WriteLine("For key = rtf, value = {0}" , openWith["rtf"]);
-            Console.WriteLine("For key = doc, value = {0}", openWith["doc"]);
-            Console.WriteLine("For key = tif, value = {0}", openWith["tif "]);
-            try
-            {
-                Console.WriteLine("For key = tif, value = {0}", openWith["tif"]);
-            }
-            catch (KeyNotFoundException)
-            {
-                Console.WriteLine("Key = \"tif\" is not found");
-            }
-            string value = "";
-            if(openWith.TryGetValue("tif", out value))
-            {
-                Console.WriteLine("For key = \"tif\", value = {0}." value);
-            }
-            else
-            {
-                Console.WriteLine("Key = \"tif\", is not found");
-            }
-            if
+            //openWith["rtf"] = "winword.exe";
+            //openWith["doc"] = "winword.exe";
 
 
-            //foreach (var item in humans1)
+            //try
             //{
-            //    Console.WriteLine(item.Name + " " + item.Age);
+            //    openWith.Add("txt", "workpad");
             //}
+            //catch (ArgumentException ex)
+            //{
+            //    Console.WriteLine("An element with key \"txt\" already exists");
+
+            //}
+
+            //Console.WriteLine("For key = rtf, value = {0}" , openWith["rtf"]);
+            //Console.WriteLine("For key = doc, value = {0}", openWith["doc"]);
+            //Console.WriteLine("For key = tif, value = {0}", openWith["tif "]);
+            //try
+            //{
+            //    Console.WriteLine("For key = tif, value = {0}", openWith["tif"]);
+            //}
+            //catch (KeyNotFoundException)
+            //{
+            //    Console.WriteLine("Key = \"tif\" is not found");
+            //}
+            //string value = "";
+            //if(openWith.TryGetValue("tif", out value))
+            //{
+            //    Console.WriteLine("For key = \"tif\", value = {0}." value);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Key = \"tif\", is not found");
+            //}
+            ////Vaatame kas "ht" võti on olemas, kui ei ole lisame
+            //if (openWith.ContainsKey("ht"))
+            //{
+            //    openWith.Add("ht", "hyperterm.exe");
+            //    Console.WriteLine("Value added for key ht: {0}", openWith["ht"]);
+            //}
+            ////küsime väärtused kasutades foreach tsüklit
+            //foreach (KeyValuePair<string, string> kvp in openWith)
+            //{
+            //    Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+            //}
+            ////küsime väärtused
+            //Dictionary<string, string>.ValueCollection valueCollection = openWith.Values;
+            //foreach (string item in valuecollection)
+            //{
+            //    Console.WriteLine("Value = {0}, item");
+            //}
+            ////Küsime võtmed
+            //Dictionary<string, string>.KeyCollection keyCollection = openWith.Keys;
+            //foreach (var item in KeyCollection)
+            //{
+            //    Console.WriteLine("Key = {0}", item');
+            //}
+            ////Kustutame võtme/väärtused
+            //openWith.Remove("doc"))
+            //if(!openWith.ContainsKey("doc"))
+            //{
+            //    Console.WriteLine("Key\"doc\" is not found.");
+            //}
+
+            //Console.ReadLine();
+            ////foreach (var item in humans1)
+            ////{
+            ////    Console.WriteLine(item.Name + " " + item.Age);
+            ////}
+            #region Queue
+            //Loome queue(järjekorras)
+            Queue<string> numbers = new Queue<string>();
+            numbers.Enqueue("one");
+            numbers.Enqueue("two");
+            numbers.Enqueue("three");
+            numbers.Enqueue("four");
+            numbers.Enqueue("five");
+
+            //küsime elemendid järjekorrast välja
+            foreach  (string number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Dequeuing ´{0}`",numbers.Dequeue());
+            //Piilume järgmist elementi
+            Console.WriteLine("Peek at next item to dequeue: {0}", numbers.Peek());
+            //Võtame välja järgmise
+            Console.WriteLine("Dequeuing `{0}`",numbers.Dequeue());
+
+            //Teeme koopia järjekorrast
+            Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
+            Console.WriteLine("\n Contents of the first Copy:");
+            foreach (string number in queueCopy)
+            {
+                Console.WriteLine(number);
+            }
+
+            string[] array2 = new string[numbers.Count * 2];
+            numbers.CopyTo(array2, numbers.Count);
+            foreach (var item in array2)
+            {
+                Console.WriteLine(item);
+            }
+
+            Queue<string> queueCopy2 = new Queue<string>(array2);
+            Console.WriteLine("\n Contents of the second Copy, with duplicates and nulls.");
+            foreach (string number in queueCopy2)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine("\n queueCopy cotains `four` = {0}", queueCopy.Contains("four"));
+            //tühjendame järjekorra
+            queueCopy.Clear();
+            Console.WriteLine("\nqueueCopy count is: {0}", queueCopy.Count);
+
+
+
+            Console.ReadLine();
+
+            #endregion
         }
     }
 }
