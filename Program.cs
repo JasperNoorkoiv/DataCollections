@@ -152,57 +152,83 @@ namespace DataCollections
             ////    Console.WriteLine(item.Name + " " + item.Age);
             ////}
             #region Queue
-            //Loome queue(järjekorras)
-            Queue<string> numbers = new Queue<string>();
-            numbers.Enqueue("one");
-            numbers.Enqueue("two");
-            numbers.Enqueue("three");
-            numbers.Enqueue("four");
-            numbers.Enqueue("five");
+            ////Loome queue(järjekorras)
+            //Queue<string> numbers = new Queue<string>();
+            //numbers.Enqueue("one");
+            //numbers.Enqueue("two");
+            //numbers.Enqueue("three");
+            //numbers.Enqueue("four");
+            //numbers.Enqueue("five");
 
-            //küsime elemendid järjekorrast välja
+            ////küsime elemendid järjekorrast välja
+            //foreach  (string number in numbers)
+            //{
+            //    Console.WriteLine(number);
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine("Dequeuing ´{0}`",numbers.Dequeue());
+            ////Piilume järgmist elementi
+            //Console.WriteLine("Peek at next item to dequeue: {0}", numbers.Peek());
+            ////Võtame välja järgmise
+            //Console.WriteLine("Dequeuing `{0}`",numbers.Dequeue());
+
+            ////Teeme koopia järjekorrast
+            //Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
+            //Console.WriteLine("\n Contents of the first Copy:");
+            //foreach (string number in queueCopy)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
+            //string[] array2 = new string[numbers.Count * 2];
+            //numbers.CopyTo(array2, numbers.Count);
+            //foreach (var item in array2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Queue<string> queueCopy2 = new Queue<string>(array2);
+            //Console.WriteLine("\n Contents of the second Copy, with duplicates and nulls.");
+            //foreach (string number in queueCopy2)
+            //{
+            //    Console.WriteLine(number);
+            //}
+            //Console.WriteLine("\n queueCopy cotains `four` = {0}", queueCopy.Contains("four"));
+            ////tühjendame järjekorra
+            //queueCopy.Clear();
+            //Console.WriteLine("\nqueueCopy count is: {0}", queueCopy.Count);
+
+
+
+            //Console.ReadLine();
+
+            #endregion
+            #region Stack - Last in first out
+
+            Stack<string> numbers = new Stack<string>();
+            numbers.Push("one");
+            numbers.Push("two");
+            numbers.Push("three");
+            numbers.Push("four");
+            numbers.Push("five");
             foreach  (string number in numbers)
             {
                 Console.WriteLine(number);
             }
-            Console.WriteLine();
-            Console.WriteLine("Dequeuing ´{0}`",numbers.Dequeue());
-            //Piilume järgmist elementi
-            Console.WriteLine("Peek at next item to dequeue: {0}", numbers.Peek());
-            //Võtame välja järgmise
-            Console.WriteLine("Dequeuing `{0}`",numbers.Dequeue());
-
-            //Teeme koopia järjekorrast
-            Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
-            Console.WriteLine("\n Contents of the first Copy:");
-            foreach (string number in queueCopy)
-            {
-                Console.WriteLine(number);
-            }
-
-            string[] array2 = new string[numbers.Count * 2];
-            numbers.CopyTo(array2, numbers.Count);
-            foreach (var item in array2)
-            {
-                Console.WriteLine(item);
-            }
-
-            Queue<string> queueCopy2 = new Queue<string>(array2);
-            Console.WriteLine("\n Contents of the second Copy, with duplicates and nulls.");
-            foreach (string number in queueCopy2)
-            {
-                Console.WriteLine(number);
-            }
-            Console.WriteLine("\n queueCopy cotains `four` = {0}", queueCopy.Contains("four"));
-            //tühjendame järjekorra
-            queueCopy.Clear();
-            Console.WriteLine("\nqueueCopy count is: {0}", queueCopy.Count);
+            Console.WriteLine("\nPopping '{0}'", numbers.Pop());
+            Console.WriteLine("Peek at next item to destack: {0}", numbers.Peek());
+            Console.WriteLine("Popping '{0}'", numbers.Pop());
 
 
 
-            Console.ReadLine();
+
+
+
+
+
 
             #endregion
+            Console.ReadLine();
         }
     }
 }
