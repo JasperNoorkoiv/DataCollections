@@ -232,23 +232,71 @@ namespace DataCollections
 
             #region Linq
             //andmekogum
-            int[] numbers = new int[7] {0, 1, 2, 3, 4, 5, 6 };
 
-            //loome päringu
-            var numQuery = from num in numbers
-                           where (num % 3) == 0
-                           select num;
+            ////loome päringu
+            //var numQuery = from num in numbers
+            //               where (num % 3) == 0
+            //               select num;
 
-            foreach (int num in numQuery)
+            //foreach (int num in numQuery)
+            //{
+            //    Console.WriteLine("{0,1} ", num);
+            //}
+            //var human1 = new List<Human>
+            //{
+ 
+
+            //Küsime inimesed kelle vanus on üle 20 ning järjestame tulemused
+            //var query = (from element in human1
+            //             orderby element.Age descending
+            //             where element.Age > 20
+            //             select element).ToList();
+            //foreach (var item in query)
+            //{
+            //    Console.WriteLine(item.Name + " " item.Age);
+            //}
+            //int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+            //var a = numbers.Contains(7);
+            //var b = false;
+            //foreach (var item in numbers)
+            //{
+            //    if (item == 6)
+            //        b = true;
+            //}
+            //Console.WriteLine(a);
+            //Console.WriteLine(b);
+            //Kindlat elementi saab nii välja küsida
+            int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+            var a = numbers.ElementAtOrDefault(15);
+            var b = numbers.FirstOrDefault();
+            var c = numbers.Take(3).ToList();
+            var d = numbers.Average();
+            var e = numbers.Max();
+            var f = numbers.Min();
+
+            Console.WriteLine("ElementAtOrDefault: " + a);
+            Console.WriteLine(b);
+            Console.WriteLine("FirstOrDefault: ");
+            foreach (var item in c)
             {
-                Console.WriteLine("{0,1} ", num);
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Average: " + d);
+            Console.WriteLine("Max " + e);
+            Console.WriteLine("Min " + ´f);
+
+            var g = human1.Where(x => x.Name == "Kalle");
+            foreach (var item in c)
+            {
+                Console.WriteLine(item);
             }
 
 
 
-
-
-                           #endregion
+            #endregion
             Console.ReadLine();
         }
     }
